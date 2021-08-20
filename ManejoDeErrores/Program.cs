@@ -15,7 +15,14 @@ namespace ManejoDeErrores
 
             for (int i = 0; i <= 5; i++)
             {
-                Console.WriteLine(list[i].ToString());
+                try
+                {
+                    Console.WriteLine(list[i].ToString());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Se produjo un error al leer uno de los elementos de la lista.");
+                }
             }
             Console.ReadLine();
         }

@@ -48,8 +48,23 @@ namespace Problema03
 
         static void MostrarAuto(Auto auto)
         {
-            Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            //try
+            //{
+            //    Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("No se puede mostrar el auto especificado.");
+            //}
+            //Console.ReadLine();
+
+            if (auto != null)
+                Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            else
+                Console.WriteLine("El auto especificado no existe.");    
             Console.ReadLine();
+
+            
         }
     }
 }

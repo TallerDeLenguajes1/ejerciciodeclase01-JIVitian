@@ -11,9 +11,20 @@ namespace Problema02
 
             num1 = 30;
             num2 = 60;
-            result = Convert.ToByte(num1 * num2);
-            Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
-            Console.ReadLine();
+            try
+            {
+                result = Convert.ToByte(num1 * num2);
+                Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
+            }
+            catch (Exception)
+            {
+                result = Convert.ToByte(num1 * num2 > 255 ? 255 : 0);
+                Console.WriteLine($"{num1} x {num2} {(result == 255 ? ">" : "<")} {result}");
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
         }
     }
 }
