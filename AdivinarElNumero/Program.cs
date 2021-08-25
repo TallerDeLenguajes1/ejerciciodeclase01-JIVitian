@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace AdivinarElNumero
 {
@@ -34,10 +35,23 @@ namespace AdivinarElNumero
                 return Int32.Parse(Console.ReadLine());
             }
             // No controlé que tipo de exepción tira
-            catch (Exception)
+            catch (Exception e)
             {
+                GuardarLog(e);
                 Console.WriteLine("Debe ingresar un numero!");
                 return LeerNumero();
+            }
+        }
+
+        // Guardo la información de la información en un archivo
+        public static void GuardarLog(Exception e)
+        {
+            using (FileStream archivo = new FileStream("Log.txt", FileMode.OpenOrCreate))
+            {
+                StreamWriter strWrite = new StreamWriter(archivo);
+                strWrite.WriteLine(e);
+                strWrite.Close();
+                strWrite.Dispose();
             }
         }
     }
